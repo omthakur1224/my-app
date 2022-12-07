@@ -24,8 +24,29 @@ const Movie = ({movie}) => {
 
 export async function getStaticPaths(){
     // console.log(context)
-    const response=await fetch("http://localhost:8080/movies")
-    let data= await response.json();
+    // const response=await fetch("http://localhost:8080/movies")
+    let data= [
+      {
+        "Title": "Titanic",
+        "id": 1,
+        "rating": 5
+      },
+      {
+        "Title": "Avengers",
+        "id": 2,
+        "rating": 5
+      },
+      {
+        "Title": "End Game",
+        "id": 3,
+        "rating": 5
+      },
+      {
+        "Title": "Wakanda",
+        "id": 4,
+        "rating": 5
+      }
+    ]
     return {
       paths:  data.map((movie)=>({params:{id:movie.id.toString()}})) ,
       fallback: false, // can also be true or 'blocking'
