@@ -6,9 +6,10 @@ import axios from 'axios'
 const Movie = ({movie}) => {
 
   const handleClick=(movie)=>{
-      let response=axios.post(`http://localhost:8080/watchlist`,movie).then((res)=>{
-        console.log("afterpost", res)
-      })
+      // let response=axios.post(`http://localhost:8080/watchlist`,movie).then((res)=>{
+      //   console.log("afterpost", res)
+      // })
+      data.push(movie)
   }
   const router=useRouter();
   return (
@@ -36,8 +37,30 @@ export async function getStaticProps(context){
     const {
         params:{id},
        }=context;
-    const response=await fetch(`http://localhost:8080/movies/${id}`)
-    let data= await response.json();
+    // const response=await fetch(`http://localhost:8080/movies/${id}`)
+    let movies= [
+      {
+        "Title": "Titanic",
+        "id": 1,
+        "rating": 5
+      },
+      {
+        "Title": "Avengers",
+        "id": 2,
+        "rating": 5
+      },
+      {
+        "Title": "End Game",
+        "id": 3,
+        "rating": 5
+      },
+      {
+        "Title": "Wakanda",
+        "id": 4,
+        "rating": 5
+      }
+    ]
+    let data=movies.filter((d)=>d.id==id)
     console.log(data,"data")
     return{
      props:{

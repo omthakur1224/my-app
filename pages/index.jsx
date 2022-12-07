@@ -24,8 +24,29 @@ import Link from 'next/link'
 }
 
  export async function getStaticProps(){
-  const response=await fetch("http://localhost:8080/movies")
-     let data= await response.json();
+  // const response=await fetch("http://localhost:8080/movies")
+     let data= [
+      {
+        "Title": "Titanic",
+        "id": 1,
+        "rating": 5
+      },
+      {
+        "Title": "Avengers",
+        "id": 2,
+        "rating": 5
+      },
+      {
+        "Title": "End Game",
+        "id": 3,
+        "rating": 5
+      },
+      {
+        "Title": "Wakanda",
+        "id": 4,
+        "rating": 5
+      }
+    ]
      return{
       props:{
         movies:data
